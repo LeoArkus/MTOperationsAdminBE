@@ -7,17 +7,17 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace UsersApi
+namespace OpAdminApi
 {
     public class Startup
     {
-        private const string TitleApi = "Users Api";
+        private const string TitleApi = "Account Api";
         private const string VersionTag = "v1";
         
         private IConfiguration Configuration { get; }
@@ -49,8 +49,6 @@ namespace UsersApi
             });
             
             services.AddSwaggerGen(SetSwaggerOption);
-            
-            services.AddScoped<IMD5, MD5>(provider => new MD5(ConfigurationReader.ReadMd5Configuration(Configuration)));
 
         }
 

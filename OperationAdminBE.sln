@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commons", "Commons\Commons.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpAdminEngineTests", "OpAdminEngineTests\OpAdminEngineTests.csproj", "{D999E414-3E11-4086-A100-5B602BF5EB90}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpAdmin", "OpAdmin", "{55A55386-F025-4D8B-8CBD-717F74FE5A0F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Accounts", "Accounts", "{55A55386-F025-4D8B-8CBD-717F74FE5A0F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Endpoints", "Endpoints", "{2492F6AE-6DF1-4CE4-9563-65B679622859}"
 EndProject
@@ -20,11 +20,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commands", "Commands", "{EC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Queries", "Queries", "{4A2194FF-CF53-4500-8006-CCA1DC8340CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpAdminApi", "OperationsAdmin\Endpoints\OpAdminApi\OpAdminApi.csproj", "{A2BCC2DD-6BB1-49A2-ADC7-0D75F20A4D45}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsApi", "OperationsAdmin\Endpoints\AccountsApi\AccountsApi.csproj", "{A2BCC2DD-6BB1-49A2-ADC7-0D75F20A4D45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpAdminApiBootstrap", "OperationsAdmin\Endpoints\OpAdminApiBootstrap\OpAdminApiBootstrap.csproj", "{2B83B30B-B67F-4EC5-9574-378B7E40DF54}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsApiBootstrap", "OperationsAdmin\Endpoints\AccountsApiBootstrap\AccountsApiBootstrap.csproj", "{2B83B30B-B67F-4EC5-9574-378B7E40DF54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpAdminApiTest", "OperationsAdmin\Endpoints\OpAdminApiTest\OpAdminApiTest.csproj", "{F2736E3A-C621-4ED6-830C-8074A71DFCC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsApiTest", "OperationsAdmin\Endpoints\AccountsApiTest\AccountsApiTest.csproj", "{F2736E3A-C621-4ED6-830C-8074A71DFCC2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpAdminCommandTest", "OperationsAdmin\Services\Commands\OpAdminCommandTest\OpAdminCommandTest.csproj", "{CE4911AF-FEB8-4B19-8AB8-7AE3AFA78AEE}"
 EndProject

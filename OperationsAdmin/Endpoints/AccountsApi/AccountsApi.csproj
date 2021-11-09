@@ -2,7 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>OpAdminApi</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Commons\Commons.csproj" />
