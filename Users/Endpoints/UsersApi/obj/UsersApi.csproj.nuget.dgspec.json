@@ -4,14 +4,14 @@
     "/home/leo/MindTeams/OperationsAdminBE/Users/Endpoints/UsersApi/UsersApi.csproj": {}
   },
   "projects": {
-    "/home/leo/MindTeams/OperationsAdminBE/Users/Endpoints/UsersApi/UsersApi.csproj": {
+    "/home/leo/MindTeams/OperationsAdminBE/Commons/Commons.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/leo/MindTeams/OperationsAdminBE/Users/Endpoints/UsersApi/UsersApi.csproj",
-        "projectName": "UsersApi",
-        "projectPath": "/home/leo/MindTeams/OperationsAdminBE/Users/Endpoints/UsersApi/UsersApi.csproj",
+        "projectUniqueName": "/home/leo/MindTeams/OperationsAdminBE/Commons/Commons.csproj",
+        "projectName": "Commons",
+        "projectPath": "/home/leo/MindTeams/OperationsAdminBE/Commons/Commons.csproj",
         "packagesPath": "/home/leo/.nuget/packages/",
-        "outputPath": "/home/leo/MindTeams/OperationsAdminBE/Users/Endpoints/UsersApi/obj/",
+        "outputPath": "/home/leo/MindTeams/OperationsAdminBE/Commons/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/leo/.nuget/NuGet/NuGet.Config"
@@ -37,6 +37,84 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/leo/MindTeams/OperationsAdminBE/Users/Endpoints/UsersApi/UsersApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/leo/MindTeams/OperationsAdminBE/Users/Endpoints/UsersApi/UsersApi.csproj",
+        "projectName": "UsersApi",
+        "projectPath": "/home/leo/MindTeams/OperationsAdminBE/Users/Endpoints/UsersApi/UsersApi.csproj",
+        "packagesPath": "/home/leo/.nuget/packages/",
+        "outputPath": "/home/leo/MindTeams/OperationsAdminBE/Users/Endpoints/UsersApi/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/leo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/home/leo/MindTeams/OperationsAdminBE/Commons/Commons.csproj": {
+                "projectPath": "/home/leo/MindTeams/OperationsAdminBE/Commons/Commons.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.OpenApi": {
+              "target": "Package",
+              "version": "[1.2.3, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
