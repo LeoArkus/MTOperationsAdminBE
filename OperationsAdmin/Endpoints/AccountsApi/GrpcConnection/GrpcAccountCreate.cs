@@ -1,6 +1,5 @@
 using System;
 using Commons;
-using Google.Protobuf;
 using Grpc.Net.Client;
 using OpAdminApi.Errors;
 using OpAdminDomain.Accounts;
@@ -24,7 +23,11 @@ namespace OpAdminApi.GrpcConnection
             var client = new CommandUpsertAccountService.CommandUpsertAccountServiceClient(channel);
             _reply = client.CommandAccountStore(new AccountRequest
             {
-                Parameters = Binary.Serialize(request)
+                Id = request.Id.ToString(),
+                AccountName = request.AccountName.Value,
+                ClientFirstName = request.ClientFirstName.AndThen(x=> x.Value, ()=> string.Empty),
+                ClientLastName = request.ClientLastName.AndThen(x=> x.Value, ()=> string.Empty),
+                UserOperationManagerId = request.UserOperationManagerId.ToString()
             });
         }
 

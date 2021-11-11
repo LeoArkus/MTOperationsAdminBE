@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Commons;
 using Grpc.Core;
@@ -16,7 +17,14 @@ namespace OpAdminCommand.Services
             => _command = bootstrap.BootstrapCreateAccount(ConfigurationReader.ReadCommandConnection(configuration));
 
         public override Task<AccountResult> CommandAccountStore(AccountRequest request, ServerCallContext context)
-            => Task.FromResult(_command.StoreAccount(request.Parameters.Deserialize<AccountCreateMessage>())
+            => Task.FromResult(_command.StoreAccount(new AccountCreateMessage()
+                {
+                    Id = Guid.Parse(request.Id),
+                    AccountName = new String50(request.AccountName),
+                    ClientFirstName = !string.IsNullOrWhiteSpace(request.ClientFirstName) ? Optional<String50>.Create(new String50(request.ClientFirstName)) : Optional<String50>.Create(),
+                    ClientLastName = !string.IsNullOrWhiteSpace(request.ClientLastName) ? Optional<String50>.Create(new String50(request.ClientLastName)) : Optional<String50>.Create(),
+                    UserOperationManagerId = Guid.Parse(request.UserOperationManagerId)
+                })
                 .AndThen(() => new AccountResult()
                 {
                     ErrorCode = string.Empty,

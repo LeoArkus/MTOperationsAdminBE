@@ -7,7 +7,11 @@ service CommandUpsertAccountService {
 }
 
 message AccountRequest {
-  string Parameters = 1;
+  string Id = 1;
+  string AccountName = 2;
+  string ClientFirstName = 3;
+  string ClientLastName = 4;
+  string UserOperationManagerId = 5;
 }
 
 message AccountResult {
