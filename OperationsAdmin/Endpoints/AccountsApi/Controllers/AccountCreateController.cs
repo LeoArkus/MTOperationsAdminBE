@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using OpAdminApi.Parsers;
 using OpAdminApi.Requests;
 using OpAdminApiBootstrap;
+using OpAdminDomain;
 using OpAdminDomain.Accounts;
 
 namespace OpAdminApi.Controllers
@@ -13,8 +14,8 @@ namespace OpAdminApi.Controllers
         private readonly IProcessAccountCreate _process;
         private const string Success = "Success";
 
-        public AccountCreateController(IBootstrapAccounts bootstrapAccounts, ICommandCreateAccount commandCreateAccount) => 
-            _process = bootstrapAccounts.BootstrapAccountCreate(commandCreateAccount);
+        public AccountCreateController(IBootstrapAccounts bootstrapAccounts, ICommandCreateAccount commandCreateAccount, IQueryCheckIfExist queryCheckIfExist) => 
+            _process = bootstrapAccounts.BootstrapAccountCreate(commandCreateAccount, queryCheckIfExist);
 
         [Route("api/AccountCreate")]
         [HttpPost]

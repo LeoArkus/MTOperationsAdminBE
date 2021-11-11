@@ -20,12 +20,14 @@ namespace CommonStorageQuery.Services
             Task.FromResult(_query.CheckIfExistInStorage(Guid.Parse(request.Id), request.ModelType.ToEnum<ModelTypeEnum>()).AndThen(
                 ()=> new CheckIfExistResult()
                 {
+                    IsSuccess = true,
                     ErrorCode = string.Empty,
                     LoggedMessage = string.Empty,
                     Found = _query.Found()
                 },
                 x=> new CheckIfExistResult()
                 {
+                    IsSuccess = false,
                     ErrorCode = x.ErrorNum,
                     LoggedMessage = x.LoggedMessage,
                     Found = false

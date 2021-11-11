@@ -10,6 +10,7 @@ using OpAdminDomain.Accounts;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using OpAdminApi.GrpcConnection;
 using OpAdminApiBootstrap;
+using OpAdminDomain;
 
 namespace OpAdminApi
 {
@@ -48,10 +49,12 @@ namespace OpAdminApi
 
             var readAccountsQueryUrl = ConfigurationReader.ReadAccountsQueryUrl(Configuration);
             var readAccountsCommandUrl = ConfigurationReader.ReadAccountsCommandUrl(Configuration);
+            var readCommonQueryUrl = ConfigurationReader.ReadCommonQueryUrl(Configuration);
 
             services.AddScoped<IBootstrapAccounts, BootstrapAccounts>();
             services.AddScoped<ICommandCreateAccount, GrpcAccountCreate>(provider => new GrpcAccountCreate(readAccountsCommandUrl));
-            
+            services.AddScoped<IQueryCheckIfExist, GrpcCheckIfExistInStorage>(provider => new GrpcCheckIfExistInStorage(readCommonQueryUrl));
+
             services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
             services.AddSwaggerGen(SetSwaggerOption);

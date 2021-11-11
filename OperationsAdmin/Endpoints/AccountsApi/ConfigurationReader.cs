@@ -38,5 +38,22 @@ namespace OpAdminApi
 
             return ReadConfig();
         }
+        
+        public static string ReadCommonQueryUrl(IConfiguration configuration, string mode = "Dev")
+        {
+            string ReadConfig()
+            {
+                try
+                {
+                    return configuration.GetSection(mode).GetSection("CommonQueryUrl").Value;
+                }
+                catch
+                {
+                    return string.Empty;
+                }
+            }
+
+            return ReadConfig();
+        }
     }
 }

@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <Protobuf Include="Protos\AccountCreate.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\CheckIfExistInStorage.proto" GrpcServices="Client" />
   </ItemGroup>
 
 </Project>
