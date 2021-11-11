@@ -14,8 +14,4 @@
     <PackageReference Include="Npgsql" Version="6.0.0-rc.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Queries" />
-  </ItemGroup>
-
 </Project>

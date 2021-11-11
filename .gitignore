@@ -1,1 +1,37 @@
 /.idea/.idea.OperationAdminBE/.idea/vcs.xml
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+
+
+.vs/
+.vscode/
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.editorconfig
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+msbuild.log
+msbuild.err
+msbuild.wrn
+.ionide/
+.idea/
+
+LogFiles/
+*.blob
+Dockerfile.*
