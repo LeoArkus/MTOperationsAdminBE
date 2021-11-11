@@ -16,7 +16,7 @@ namespace OpAdminCommand.Services
             => _command = bootstrap.BootstrapCreateAccount(ConfigurationReader.ReadCommandConnection(configuration));
 
         public override Task<AccountResult> CommandAccountStore(AccountRequest request, ServerCallContext context)
-            => Task.FromResult(_command.StoreAccount(request.Parameters.ToByteArray().Deserialize<AccountCreateMessage>())
+            => Task.FromResult(_command.StoreAccount(request.Parameters.Deserialize<AccountCreateMessage>())
                 .AndThen(() => new AccountResult()
                 {
                     ErrorCode = string.Empty,

@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -45,12 +46,14 @@ namespace OpAdminApi
                     });
             });
 
-            var readAccountsQueryUrl = ConfigurationReader.ReadAccountsCommandUrl(Configuration);
+            var readAccountsQueryUrl = ConfigurationReader.ReadAccountsQueryUrl(Configuration);
             var readAccountsCommandUrl = ConfigurationReader.ReadAccountsCommandUrl(Configuration);
 
             services.AddScoped<IBootstrapAccounts, BootstrapAccounts>();
             services.AddScoped<ICommandCreateAccount, GrpcAccountCreate>(provider => new GrpcAccountCreate(readAccountsCommandUrl));
             
+            services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+
             services.AddSwaggerGen(SetSwaggerOption);
 
         }

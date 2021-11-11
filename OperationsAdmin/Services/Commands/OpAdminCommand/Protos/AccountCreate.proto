@@ -7,7 +7,7 @@ service CommandUpsertAccountService {
 }
 
 message AccountRequest {
-  bytes Parameters = 1;
+  string Parameters = 1;
 }
 
 message AccountResult {

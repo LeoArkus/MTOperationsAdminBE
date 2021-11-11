@@ -24,7 +24,7 @@ namespace OpAdminApi.GrpcConnection
             var client = new CommandUpsertAccountService.CommandUpsertAccountServiceClient(channel);
             _reply = client.CommandAccountStore(new AccountRequest
             {
-                Parameters = ByteString.CopyFrom(Binary.Serialize(request))
+                Parameters = Binary.Serialize(request)
             });
         }
 
