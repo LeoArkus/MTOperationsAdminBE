@@ -9,4 +9,9 @@
     <Compile Remove="Class1.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\OpAdminDomain\OpAdminDomain.csproj" />
+    <ProjectReference Include="..\..\..\OpAdminEngine\OpAdminEngine.csproj" />
+  </ItemGroup>
+
 </Project>

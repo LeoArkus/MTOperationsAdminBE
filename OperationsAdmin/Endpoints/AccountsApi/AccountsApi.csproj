@@ -6,19 +6,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\..\Commons\Commons.csproj" />
+    <ProjectReference Include="..\..\..\OpAdminDomain\OpAdminDomain.csproj" />
+    <ProjectReference Include="..\AccountsApiBootstrap\AccountsApiBootstrap.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
     <PackageReference Include="Microsoft.OpenApi" Version="1.2.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.2.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\AccountCreate.proto" GrpcServices="Client" />
   </ItemGroup>
 
 </Project>

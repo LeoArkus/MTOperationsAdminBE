@@ -6,11 +6,16 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Commons\Commons.csproj" />
+    <ProjectReference Include="..\OpAdminDomain\OpAdminDomain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="Npgsql" Version="6.0.0-rc.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Queries" />
   </ItemGroup>
 
 </Project>

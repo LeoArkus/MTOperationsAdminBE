@@ -10,12 +10,15 @@
 
   <ItemGroup>
     <Folder Include="obj\Debug\net5.0\Protos" />
-    <Folder Include="Protos" />
-    <Folder Include="Services" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Services\GreeterService.cs" />
+    <Protobuf Include="Protos\AccountCreate.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\OpAdminDomain\OpAdminDomain.csproj" />
+    <ProjectReference Include="..\OpAdminCommandBootstrap\OpAdminCommandBootstrap.csproj" />
   </ItemGroup>
 
 </Project>

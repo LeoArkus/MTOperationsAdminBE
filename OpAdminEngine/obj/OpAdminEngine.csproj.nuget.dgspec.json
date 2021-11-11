@@ -4,6 +4,114 @@
     "/home/leo/MindTeams/OperationsAdminBE/OpAdminEngine/OpAdminEngine.csproj": {}
   },
   "projects": {
+    "/home/leo/MindTeams/OperationsAdminBE/Commons/Commons.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/leo/MindTeams/OperationsAdminBE/Commons/Commons.csproj",
+        "projectName": "Commons",
+        "projectPath": "/home/leo/MindTeams/OperationsAdminBE/Commons/Commons.csproj",
+        "packagesPath": "/home/leo/.nuget/packages/",
+        "outputPath": "/home/leo/MindTeams/OperationsAdminBE/Commons/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/leo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/leo/MindTeams/OperationsAdminBE/OpAdminDomain/OpAdminDomain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/leo/MindTeams/OperationsAdminBE/OpAdminDomain/OpAdminDomain.csproj",
+        "projectName": "OpAdminDomain",
+        "projectPath": "/home/leo/MindTeams/OperationsAdminBE/OpAdminDomain/OpAdminDomain.csproj",
+        "packagesPath": "/home/leo/.nuget/packages/",
+        "outputPath": "/home/leo/MindTeams/OperationsAdminBE/OpAdminDomain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/leo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/home/leo/MindTeams/OperationsAdminBE/Commons/Commons.csproj": {
+                "projectPath": "/home/leo/MindTeams/OperationsAdminBE/Commons/Commons.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/home/leo/MindTeams/OperationsAdminBE/OpAdminEngine/OpAdminEngine.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -25,7 +133,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/home/leo/MindTeams/OperationsAdminBE/OpAdminDomain/OpAdminDomain.csproj": {
+                "projectPath": "/home/leo/MindTeams/OperationsAdminBE/OpAdminDomain/OpAdminDomain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
