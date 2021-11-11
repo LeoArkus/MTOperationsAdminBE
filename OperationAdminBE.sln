@@ -26,17 +26,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsApiBootstrap", "Ope
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsApiTest", "OperationsAdmin\Endpoints\AccountsApiTest\AccountsApiTest.csproj", "{F2736E3A-C621-4ED6-830C-8074A71DFCC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpAdminCommandTest", "OperationsAdmin\Services\Commands\OpAdminCommandTest\OpAdminCommandTest.csproj", "{CE4911AF-FEB8-4B19-8AB8-7AE3AFA78AEE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsCommandTest", "OperationsAdmin\Services\Commands\AccountsCommandTest\AccountsCommandTest.csproj", "{CE4911AF-FEB8-4B19-8AB8-7AE3AFA78AEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpAdminQuery", "OperationsAdmin\Services\Queries\OpAdminQuery\OpAdminQuery.csproj", "{501887F8-E61B-4C84-A6BF-494475481EB6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsQuery", "OperationsAdmin\Services\Queries\AccountsQuery\AccountsQuery.csproj", "{501887F8-E61B-4C84-A6BF-494475481EB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpAdminQueryBootstrap", "OperationsAdmin\Services\Queries\OpAdminQueryBootstrap\OpAdminQueryBootstrap.csproj", "{E44EC742-22FA-43D1-9534-5CBB3E7B9633}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsQueryBootstrap", "OperationsAdmin\Services\Queries\AccountsQueryBootstrap\AccountsQueryBootstrap.csproj", "{E44EC742-22FA-43D1-9534-5CBB3E7B9633}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpAdminQueryTest", "OperationsAdmin\Services\Queries\OpAdminQueryTest\OpAdminQueryTest.csproj", "{19F1509B-82F7-43AE-9D6A-8C8245031426}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsQueryTest", "OperationsAdmin\Services\Queries\AccountsQueryTest\AccountsQueryTest.csproj", "{19F1509B-82F7-43AE-9D6A-8C8245031426}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpAdminCommand", "OperationsAdmin\Services\Commands\OpAdminCommand\OpAdminCommand.csproj", "{D7AEC900-E648-4D6A-8BA6-84ECFF77FB63}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsCommand", "OperationsAdmin\Services\Commands\AccountsCommand\AccountsCommand.csproj", "{D7AEC900-E648-4D6A-8BA6-84ECFF77FB63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpAdminCommandBootstrap", "OperationsAdmin\Services\Commands\OpAdminCommandBootstrap\OpAdminCommandBootstrap.csproj", "{99EC41F4-BB8F-40A9-9916-A26C645B9A1A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsCommandBootstrap", "OperationsAdmin\Services\Commands\AccountsCommandBootstrap\AccountsCommandBootstrap.csproj", "{99EC41F4-BB8F-40A9-9916-A26C645B9A1A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users", "Users", "{3FC5EC22-2BC2-4E52-832D-595FC7A82F8B}"
 EndProject
