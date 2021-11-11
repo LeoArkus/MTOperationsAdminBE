@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcCommonCheckIfExistInStorage";
+
+service CommonCheckIfExistQueryService {
+  rpc CheckIfExistInStorage (CheckIfExistRequest) returns (CheckIfExistResult);
+}
+
+message CheckIfExistRequest {
+  string Id = 1;
+  string ModelType = 2;
+}
+
+message CheckIfExistResult {
+  bool IsSuccess = 1;
+  string ErrorCode = 2;
+  string LoggedMessage = 3;
+  bool Found = 4;
+}

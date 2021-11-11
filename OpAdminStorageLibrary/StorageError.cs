@@ -13,14 +13,11 @@ namespace OpAdminStorageLibrary
         private static string UnableToExecuteQuery = "Unable to execute Query";
         private static string UnableToReadQueryResult = "Unable to read/assign result from query execution";
         private static string UnableToDispose = "Unable to dispose connection, threw exception";
-        private static string UnableToRollbackTransaction = "Unable to succesfully rollback transaction";
+        private static string UnableToRollbackTransaction = "Unable to successfully rollback transaction";
         private static string UnableToCreateParameters = "Unable to Create Query parameters";
         private static string UnableToBuildQuery = "Unable to Build Query";
         private static string UnableToParse = "Unable to parse database result";
-        private static string UnableToStoreCustomerQuotesDatasource = "Unable to store CustomerQuotes Datasource";
-        private static string UnableToLoadReportIntoMemory = "Unable to store CustomerQuotes Datasource";
-        private static string UnableToRefreshReportDatasource = "Unable to store CustomerQuotes Datasource";
-        
+
 
         public static ErrorCode ErrorCodeUnavailableConnection = new ErrorCode(UnavailableConnection, StorageErrorEnum.ConnectionUnavailable);
         public static ErrorCode ErrorCodeUnableToOpenConnection = new ErrorCode(UnableToOpenConnection, StorageErrorEnum.CannotOpenConnection);
@@ -35,10 +32,6 @@ namespace OpAdminStorageLibrary
         public static ErrorCode ErrorCodeUnableToCreateParameters = new ErrorCode(UnableToCreateParameters, StorageErrorEnum.UnableToCreateSqlParameters);
         public static ErrorCode ErrorCodeUnableToBuildQuery = new ErrorCode(UnableToBuildQuery, StorageErrorEnum.UnableToBuildQuery);
         public static ErrorCode ErrorCodeUnableToParseDatabaseResult = new ErrorCode(UnableToParse, StorageErrorEnum.UnableToParseDataBaseResult);
-        public static ErrorCode ErrorCodeUnableToStoreCustomerQuotesDatasource = new ErrorCode(UnableToStoreCustomerQuotesDatasource, StorageErrorEnum.UnableToStoreCustomerQuotesDatasource);
-        public static ErrorCode ErrorUnableToLoadReportIntoMemory = new ErrorCode(UnableToLoadReportIntoMemory, StorageErrorEnum.UnableToLoadReportIntoMemory);
-        public static ErrorCode ErrorUnableToRefreshReportDatasource = new ErrorCode(UnableToRefreshReportDatasource, StorageErrorEnum.UnableToRefreshReportDatasource);
-        
 
         private enum StorageErrorEnum
         {
@@ -54,10 +47,7 @@ namespace OpAdminStorageLibrary
             UnableToRollbackTransaction,
             UnableToCreateSqlParameters,
             UnableToBuildQuery,
-            UnableToParseDataBaseResult,
-            UnableToStoreCustomerQuotesDatasource,
-            UnableToLoadReportIntoMemory,
-            UnableToRefreshReportDatasource
+            UnableToParseDataBaseResult
         }
     }
 }

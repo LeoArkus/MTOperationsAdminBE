@@ -51,7 +51,6 @@ namespace UsersApi
             services.AddSwaggerGen(SetSwaggerOption);
             
             services.AddScoped<IMD5, MD5>(provider => new MD5(ConfigurationReader.ReadMd5Configuration(Configuration)));
-
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

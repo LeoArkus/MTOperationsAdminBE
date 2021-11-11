@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>OpAdminCommandBootstrap</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\OpAdminDomain\OpAdminDomain.csproj" />
+    <ProjectReference Include="..\..\..\..\OpAdminStorageLibrary\OpAdminStorageLibrary.csproj" />
+  </ItemGroup>
+
+</Project>

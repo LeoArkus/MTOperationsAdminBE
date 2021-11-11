@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcCommandAccountUpsertService";
+
+service CommandUpsertAccountService {
+  rpc CommandAccountStore (AccountRequest) returns (AccountResult);
+}
+
+message AccountRequest {
+  string Id = 1;
+  string AccountName = 2;
+  string ClientFirstName = 3;
+  string ClientLastName = 4;
+  string UserOperationManagerId = 5;
+}
+
+message AccountResult {
+  string ErrorCode = 1;
+  string LoggedMessage = 2;
+  bool IsSuccess = 3;
+}

@@ -1,17 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Commons.Commons;
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
+using OpAdminDomain.Accounts;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using OpAdminApi.GrpcConnection;
+using OpAdminApiBootstrap;
+using OpAdminDomain;
 
 namespace OpAdminApi
 {
@@ -47,7 +46,17 @@ namespace OpAdminApi
                         builder.AllowAnyMethod();
                     });
             });
-            
+
+            var readAccountsQueryUrl = ConfigurationReader.ReadAccountsQueryUrl(Configuration);
+            var readAccountsCommandUrl = ConfigurationReader.ReadAccountsCommandUrl(Configuration);
+            var readCommonQueryUrl = ConfigurationReader.ReadCommonQueryUrl(Configuration);
+
+            services.AddScoped<IBootstrapAccounts, BootstrapAccounts>();
+            services.AddScoped<ICommandCreateAccount, GrpcAccountCreate>(provider => new GrpcAccountCreate(readAccountsCommandUrl));
+            services.AddScoped<IQueryCheckIfExist, GrpcCheckIfExistInStorage>(provider => new GrpcCheckIfExistInStorage(readCommonQueryUrl));
+
+            services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+
             services.AddSwaggerGen(SetSwaggerOption);
 
         }
