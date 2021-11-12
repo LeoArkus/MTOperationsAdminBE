@@ -17,7 +17,7 @@ namespace OpAdminCommand.Services
             => _command = bootstrap.BootstrapCreateAccount(ConfigurationReader.ReadCommandConnection(configuration));
 
         public override Task<AccountResult> CommandAccountStore(AccountRequest request, ServerCallContext context)
-            => Task.FromResult(_command.StoreAccount(new AccountCreateMessage()
+            => Task.FromResult(_command.StoreAccount(new AccountUpsertMessage()
                 {
                     Id = Guid.Parse(request.Id),
                     AccountName = new String50(request.AccountName),

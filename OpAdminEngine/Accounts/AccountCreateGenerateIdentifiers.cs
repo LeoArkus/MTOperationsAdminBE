@@ -6,17 +6,17 @@ using static Commons.TryCommandResult;
 
 namespace OpAdminEngine.Accounts
 {
-    public class AccountCreateGenerateIdentifiers : IGenerateIdentifiers<AccountCreateMessage>
+    public class AccountCreateGenerateIdentifiers : IGenerateIdentifiers<AccountUpsertMessage>
     {
-        private Optional<AccountCreateMessage> _result = Optional<AccountCreateMessage>.Create();
+        private Optional<AccountUpsertMessage> _result = Optional<AccountUpsertMessage>.Create();
 
-        public CommandResult<ErrorCode> GenerateGuidsForModel(AccountCreateMessage model) =>
+        public CommandResult<ErrorCode> GenerateGuidsForModel(AccountUpsertMessage model) =>
             TryEc(() =>
             {
                 model.Id = model.Id.Equals(Guid.Empty) ? Guid.NewGuid() : model.Id;
-                _result = Optional<AccountCreateMessage>.Create(model);
+                _result = Optional<AccountUpsertMessage>.Create(model);
             }, EngineErrors.UnableToGenerateIdentifiers);
 
-        public Optional<AccountCreateMessage> ReadModelWithIds() => _result;
+        public Optional<AccountUpsertMessage> ReadModelWithIds() => _result;
     }
 }

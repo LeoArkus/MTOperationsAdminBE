@@ -8,6 +8,7 @@ namespace OpAdminEngine.Accounts
         public static ErrorCode InvalidClientFirstName = new ("Invalid client first name length, up to 50 characters", AccountProcessEnum.InvalidClientFirstName);
         public static ErrorCode InvalidClientLastName = new ("Invalid client last name length, up to 50 characters", AccountProcessEnum.InvalidClientLastName);
         public static ErrorCode OperationManagerDoesNotExist = new ("Operation manager user does not exist in storage", AccountProcessEnum.OperationManagerDoesNotExist);
+        public static ErrorCode AccountDoesNotExist = new ("Account does not exist in storage", AccountProcessEnum.AccountDoesNotExist);
 
 
         private enum AccountProcessEnum
@@ -15,7 +16,8 @@ namespace OpAdminEngine.Accounts
             InvalidAccountName,
             OperationManagerDoesNotExist,
             InvalidClientFirstName,
-            InvalidClientLastName
+            InvalidClientLastName,
+            AccountDoesNotExist
         }
         
     }
