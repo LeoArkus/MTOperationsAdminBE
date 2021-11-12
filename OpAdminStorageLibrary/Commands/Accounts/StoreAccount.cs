@@ -14,7 +14,7 @@ namespace OpAdminStorageLibrary.Commands.Accounts
 
         public StoreAccountCommand(ICommandDbConnection dbConnection) => _dbConnection = dbConnection;
 
-        public CommandResult<ErrorCode> StoreAccount(AccountCreateMessage accountMessage) =>
+        public CommandResult<ErrorCode> StoreAccount(AccountUpsertMessage accountMessage) =>
             Railway(
                 _dbConnection.RollbackOnError,
                 _dbConnection.CreateConnection,
@@ -24,7 +24,7 @@ namespace OpAdminStorageLibrary.Commands.Accounts
                 _dbConnection.Commit
             ).Finally(_dbConnection.Dispose);
 
-        private CommandResult<ErrorCode> ExecuteUpsert(Tuple<IDbConnection, IDbTransaction> conn, AccountCreateMessage accountMessage) =>
+        private CommandResult<ErrorCode> ExecuteUpsert(Tuple<IDbConnection, IDbTransaction> conn, AccountUpsertMessage accountMessage) =>
             TryCommandResult.TryEcEx(() => conn.Item1.Execute(_upsertQuery, new
             {
                 id = accountMessage.Id,
@@ -50,7 +50,14 @@ namespace OpAdminStorageLibrary.Commands.Accounts
               @clientfirstname,
               @clientlastname,
               @operationmanager     
-            )
+            ) 
+            ON CONFLICT (id) DO
+            UPDATE SET
+              accountname = @accountname,
+              clientfirstname = @clientfirstname,
+              clientlastname = @clientlastname,
+              operationmanager = @operationmanager 
+            
         ";
     }
 }

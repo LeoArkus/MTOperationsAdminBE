@@ -7,10 +7,11 @@ using static OpAdminEngine.ValidationModel;
 
 namespace OpAdminEngine.Accounts
 {
-    public class AccountCreateValidator : IValidateModel<AccountCreateMessage>
+    public class AccountCreateValidator : IValidateModel<AccountUpsertMessage>
     {
-        public CommandResult<IEnumerable<ErrorCode>> IsValid(AccountCreateMessage toValidate) =>
+        public CommandResult<IEnumerable<ErrorCode>> IsValid(AccountUpsertMessage toValidate) =>
             RailFold(
+                ()=> ValidateId(toValidate.Id, EngineErrors.InvalidId),
                 ()=> toValidate.AccountName.IsValid.CheckValidation(AccountProcessErrors.InvalidAccountName),
                 ()=> ValidateString(toValidate.ClientFirstName, AccountProcessErrors.InvalidClientFirstName),
                 ()=> ValidateString(toValidate.ClientLastName, AccountProcessErrors.InvalidClientLastName)

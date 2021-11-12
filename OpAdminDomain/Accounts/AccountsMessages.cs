@@ -3,7 +3,7 @@ using Commons;
 
 namespace OpAdminDomain.Accounts
 {
-    public struct AccountCreateMessage
+    public struct AccountUpsertMessage
     {
         public Guid Id { get; set; }
         public String50 AccountName { get; set; }

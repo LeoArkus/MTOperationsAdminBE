@@ -11,11 +11,11 @@ namespace OpAdminEngine.Accounts
     {
         private readonly ICommandCreateAccount _command;
         private readonly IQueryCheckIfExist _queryCheckIfExist;
-        private readonly IValidateModel<AccountCreateMessage> _validator;
-        private readonly IGenerateIdentifiers<AccountCreateMessage> _generator;
+        private readonly IValidateModel<AccountUpsertMessage> _validator;
+        private readonly IGenerateIdentifiers<AccountUpsertMessage> _generator;
 
         public AccountCreateProcess(ICommandCreateAccount command, IQueryCheckIfExist queryCheckIfExist,
-            IValidateModel<AccountCreateMessage> validator, IGenerateIdentifiers<AccountCreateMessage> generator)
+            IValidateModel<AccountUpsertMessage> validator, IGenerateIdentifiers<AccountUpsertMessage> generator)
         {
             _command = command;
             _validator = validator;
@@ -23,17 +23,17 @@ namespace OpAdminEngine.Accounts
             _queryCheckIfExist = queryCheckIfExist;
         }
 
-        public CommandResult<IEnumerable<ErrorCode>> ProcessAccountCreate(IParseRawRequest<AccountCreateMessage> parser) =>
+        public CommandResult<IEnumerable<ErrorCode>> ProcessAccountCreate(IParseRawRequest<AccountUpsertMessage> parser) =>
             Railway(
                 CommandResult<IEnumerable<ErrorCode>>.Create,
                 ()=> parser.Parse().ToEnumerable(),
-                Bind(parser.ReadParsed, _validator.IsValid, EngineErrors.UnableToReadParsed.ToEnumerable()),
                 BindEnumerable(parser.ReadParsed, _generator.GenerateGuidsForModel, EngineErrors.UnableToReadParsed),
-                BindEnumerable(_generator.ReadModelWithIds, CheckIfUserExist, EngineErrors.UnableToReadFromGenerator),
+                Bind(_generator.ReadModelWithIds, _validator.IsValid, EngineErrors.UnableToReadFromGenerator.ToEnumerable()),
+                BindEnumerable(_generator.ReadModelWithIds, CheckUserExist, EngineErrors.UnableToReadFromGenerator),
                 BindEnumerable(_generator.ReadModelWithIds, _command.StoreAccount, EngineErrors.UnableToReadFromGenerator)
             );
 
-        private CommandResult<ErrorCode> CheckIfUserExist(AccountCreateMessage accountCreateMessage) =>
+        private CommandResult<ErrorCode> CheckUserExist(AccountUpsertMessage accountCreateMessage) =>
             _queryCheckIfExist.CheckIfExistInStorage(accountCreateMessage.UserOperationManagerId, ModelTypeEnum.Users)
                 .AndThen(() => _queryCheckIfExist.Found().CheckValidation(AccountProcessErrors.OperationManagerDoesNotExist), CommandResult<ErrorCode>.Create);
     }

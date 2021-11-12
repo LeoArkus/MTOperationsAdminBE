@@ -16,7 +16,7 @@ namespace OpAdminApi.GrpcConnection
 
         public GrpcAccountCreate(string url) => _url = url;
 
-        private void CallGrpc(AccountCreateMessage request)
+        private void CallGrpc(AccountUpsertMessage request)
         {
             AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
             using var channel = GrpcChannel.ForAddress(_url);
@@ -31,7 +31,7 @@ namespace OpAdminApi.GrpcConnection
             });
         }
 
-        public CommandResult<ErrorCode> StoreAccount(AccountCreateMessage toStore)
+        public CommandResult<ErrorCode> StoreAccount(AccountUpsertMessage toStore)
             => Railway(
                 CommandResult<ErrorCode>.Create,
                 TryEcExFunc(() => CallGrpc(toStore), GrpcConnectionErrors.FailWhenTryingCommandAgent.ErrorNum),

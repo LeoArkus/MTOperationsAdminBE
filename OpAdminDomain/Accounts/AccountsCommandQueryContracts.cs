@@ -4,6 +4,6 @@ namespace OpAdminDomain.Accounts
 {
     public interface ICommandCreateAccount
     {
-        CommandResult<ErrorCode> StoreAccount(AccountCreateMessage accountMessage);
+        CommandResult<ErrorCode> StoreAccount(AccountUpsertMessage accountMessage);
     }
 }

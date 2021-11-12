@@ -7,16 +7,17 @@ using static Commons.TryCommandResult;
 
 namespace OpAdminApi.Parsers
 {
-    public class AccountCreateParser : IParseRawRequest<AccountUpsertMessage>
+    public class AccountUpdateParser : IParseRawRequest<AccountUpsertMessage>
     {
-        private readonly AccountCreateRequest _request;
+        private readonly AccountUpdateRequest _request;
         private Optional<AccountUpsertMessage> _parsed = Optional<AccountUpsertMessage>.Create();
 
-        public AccountCreateParser(AccountCreateRequest request) => _request = request;
+        public AccountUpdateParser(AccountUpdateRequest request) => _request = request;
 
         public CommandResult<ErrorCode> Parse() =>
             TryEcEx(() => _parsed = Optional<AccountUpsertMessage>.Create(new AccountUpsertMessage()
             {
+                Id = _request.Id,
                 AccountName = new String50(_request.AccountName),
                 UserOperationManagerId = _request.UserOperationManagerId,
                 ClientFirstName = !string.IsNullOrWhiteSpace(_request.ClientFirstName) ? Optional<String50>.Create(new String50(_request.ClientFirstName)) : Optional<String50>.Create(),
