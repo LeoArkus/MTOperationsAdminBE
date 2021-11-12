@@ -11,12 +11,18 @@
 
   <ItemGroup>
     <Folder Include="obj\Debug\net5.0\Protos" />
-    <Folder Include="Protos" />
-    <Folder Include="Services" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="Services\GreeterService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\AccountDetail.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AccountsQueryBootstrap\AccountsQueryBootstrap.csproj" />
   </ItemGroup>
 
 </Project>
