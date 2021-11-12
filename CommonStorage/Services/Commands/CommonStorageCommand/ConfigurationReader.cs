@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace OpAdminCommand
+namespace CommonStorageCommand
 {
     public static class ConfigurationReader
     {

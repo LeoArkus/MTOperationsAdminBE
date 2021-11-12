@@ -55,5 +55,22 @@ namespace OpAdminApi
 
             return ReadConfig();
         }
+        
+        public static string ReadCommonCommandUrl(IConfiguration configuration, string mode = "Dev")
+        {
+            string ReadConfig()
+            {
+                try
+                {
+                    return configuration.GetSection(mode).GetSection("CommonCommandUrl").Value;
+                }
+                catch
+                {
+                    return string.Empty;
+                }
+            }
+
+            return ReadConfig();
+        }
     }
 }

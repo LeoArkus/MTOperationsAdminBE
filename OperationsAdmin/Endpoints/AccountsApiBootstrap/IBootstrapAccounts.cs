@@ -9,7 +9,7 @@ namespace OpAdminApiBootstrap
         IProcessAccountCreate BootstrapAccountCreate(ICommandCreateAccount commandCreateAccount, IQueryCheckIfExist queryCheckIfExist);
         IProcessAccountUpdate BootstrapAccountUpdate(ICommandCreateAccount commandCreateAccount, IQueryCheckIfExist queryCheckIfExist);
         IProcessAccountDetail BootstrapAccountDetail(IQueryGetAccountDetail queryGetAccountDetail, IQueryCheckIfExist queryCheckIfExist);
-
+        IProcessAccountDelete BootstrapAccountDelete(ICommandDeleteModel commandDeleteModel, IQueryCheckIfExist queryCheckIfExist);
     }
     
     public class BootstrapAccounts : IBootstrapAccounts
@@ -22,5 +22,8 @@ namespace OpAdminApiBootstrap
 
         public IProcessAccountDetail BootstrapAccountDetail(IQueryGetAccountDetail queryGetAccountDetail, IQueryCheckIfExist queryCheckIfExist) =>
             new AccountDetailProcess(queryCheckIfExist, queryGetAccountDetail);
+
+        public IProcessAccountDelete BootstrapAccountDelete(ICommandDeleteModel commandDeleteModel, IQueryCheckIfExist queryCheckIfExist) =>
+            new AccountDeleteProcess(commandDeleteModel, queryCheckIfExist);
     }
 }

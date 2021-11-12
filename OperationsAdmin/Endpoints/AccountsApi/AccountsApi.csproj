@@ -24,6 +24,7 @@
     <Protobuf Include="Protos\AccountCreate.proto" GrpcServices="Client" />
     <Protobuf Include="Protos\AccountDetail.proto" GrpcServices="Client" />
     <Protobuf Include="Protos\CheckIfExistInStorage.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\ModelDelete.proto" GrpcServices="Client" />
   </ItemGroup>
 
 </Project>

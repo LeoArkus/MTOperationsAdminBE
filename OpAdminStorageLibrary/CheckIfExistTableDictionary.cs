@@ -3,9 +3,9 @@ using OpAdminDomain;
 
 namespace OpAdminStorageLibrary
 {
-    public static class CheckIfExistTable
+    public static class StorageModelTables
     {
-        public static Dictionary<ModelTypeEnum, string> DictionaryTableExist = new Dictionary<ModelTypeEnum, string>()
+        public static readonly Dictionary<ModelTypeEnum, string> DictionaryTable = new()
         {
             { ModelTypeEnum.Accounts , "accounts.accounts"},
             { ModelTypeEnum.Users , "users.users"}

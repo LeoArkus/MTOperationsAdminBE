@@ -29,7 +29,7 @@ namespace OpAdminStorageLibrary.Queries.ExistInStorage
         public bool Found() => _found;
 
         private string _queryExist(ModelTypeEnum modelType) => $@"
-            SELECT 1 = 1 FROM {CheckIfExistTable.DictionaryTableExist[modelType]} WHERE id = @id
+            SELECT 1 = 1 FROM {StorageModelTables.DictionaryTable[modelType]} WHERE id = @id
         ";
 
     }
