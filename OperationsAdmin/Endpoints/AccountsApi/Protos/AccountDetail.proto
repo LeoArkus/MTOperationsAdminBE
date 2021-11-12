@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcAccountDetailQuery";
+
+service AccountDetailQueryService {
+  rpc GetAccountDetail (AccountDetailRequest) returns (AccountDetailResult);
+}
+
+message AccountDetailRequest {
+  string Id = 1;
+}
+
+message AccountDetailResult {
+  bool IsSuccess = 1;
+  string ErrorCode = 2;
+  string LoggedMessage = 3;
+  AccountDetailResponse Report = 4;
+}
+
+message AccountDetailResponse
+{
+  string Id = 1;
+  string AccountName = 2;
+  string ClientFirstName = 3;
+  string ClientLastName = 4;
+  string OperationManager = 5;
+}

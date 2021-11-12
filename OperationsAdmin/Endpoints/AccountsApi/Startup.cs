@@ -54,6 +54,8 @@ namespace OpAdminApi
             services.AddScoped<IBootstrapAccounts, BootstrapAccounts>();
             services.AddScoped<ICommandCreateAccount, GrpcAccountCreate>(provider => new GrpcAccountCreate(readAccountsCommandUrl));
             services.AddScoped<IQueryCheckIfExist, GrpcCheckIfExistInStorage>(provider => new GrpcCheckIfExistInStorage(readCommonQueryUrl));
+            services.AddScoped<IQueryGetAccountDetail, GrpcAccountDetail>(provider => new GrpcAccountDetail(readAccountsQueryUrl));
+
 
             services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
