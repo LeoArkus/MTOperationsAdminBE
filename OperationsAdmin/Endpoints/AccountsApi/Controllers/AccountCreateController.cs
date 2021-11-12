@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Commons;
 using Microsoft.AspNetCore.Mvc;
+using OpAdminApi.Errors;
 using OpAdminApi.Parsers;
 using OpAdminApi.Requests;
 using OpAdminApiBootstrap;
@@ -12,7 +13,6 @@ namespace OpAdminApi.Controllers
     public class AccountCreateController : Controller
     {
         private readonly IProcessAccountCreate _process;
-        private const string Success = "Success";
 
         public AccountCreateController(IBootstrapAccounts bootstrapAccounts, ICommandCreateAccount commandCreateAccount, IQueryCheckIfExist queryCheckIfExist) => 
             _process = bootstrapAccounts.BootstrapAccountCreate(commandCreateAccount, queryCheckIfExist);
@@ -24,6 +24,6 @@ namespace OpAdminApi.Controllers
 
         private IActionResult OnError(IEnumerable<ErrorCode> errorCodes) => BadRequest(errorCodes);
 
-        private IActionResult OnSuccess() => Ok(Success);
+        private IActionResult OnSuccess() => _process.ReadResult().AndThen(x => Ok(x), ()=> OnError(ApiErrors.UnableToLoadResult.ToEnumerable()));
     }
 }
