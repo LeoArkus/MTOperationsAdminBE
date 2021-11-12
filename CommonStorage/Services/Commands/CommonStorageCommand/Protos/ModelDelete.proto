@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcCommonModelDeleteCommand";
+
+service CommonModelDeleteCommand {
+  rpc CommonModelDeleteCommand (ModelDeleteRequest) returns (ModelDeleteResult);
+}
+
+message ModelDeleteRequest {
+  string Id = 1;
+  string ModelType = 2;
+}
+
+message ModelDeleteResult {
+  bool IsSuccess = 1;
+  string ErrorCode = 2;
+  string LoggedMessage = 3;
+}
